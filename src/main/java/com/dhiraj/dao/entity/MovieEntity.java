@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -34,4 +35,7 @@ public class MovieEntity {
 	//no need to use joinColumn here 
 	@OneToMany(mappedBy ="movieEntity" ,cascade = CascadeType.ALL)
 	private List<ActorEntity> actors;
+	
+	@OneToOne(mappedBy = "movieEntity")
+	private ProducerEntity producerEntity;
 }
